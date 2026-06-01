@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2026 a las 18:07:50
+-- Tiempo de generación: 01-06-2026 a las 18:54:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -422,7 +422,7 @@ INSERT INTO `proveedores` (`id_proveedor`, `id_comunidad`, `nombre`, `categoria`
 (3, 1, 'MarioBros', 'Fontaner铆a', '929556274', 'MarioyLuigi@gmail.com', 'L-J de 8.00 a 14.00 y de 16.00 a 18.00', 'Arreglamos, tuber铆as, ba帽os, fregaderos y salvamos princesas en nuestro tiempo libre YaJuuu'),
 (4, 1, 'AlamBrito', 'Electricidad', '678492373', 'alam@brito.com', 'L-V de 10 a 18', 'Arreglamos cableados, enchufes y termomixes'),
 (5, 1, 'ManiManitas', 'Conserjer铆a', '678940324', 'Mani@manitas.com', 'L-J de 8.00 a 16.00 y V-S de 8.00 a 15.00', 'No arreglo nada, solo saco la basura y limpio el portal.  De vez en cuando me puedes pedir que te cuelgue un cuadro no me llames para tonter铆as'),
-(0, 1, 'Coque SL', 'Jardiner铆a', '123932123', 'coquecalatraba@gmail.com', 'L-V de 10 a 18', 'Coque conserje, jardinero, todo');
+(6, 1, 'Coque SL', 'Jardiner铆a', '123932123', 'coquecalatraba@gmail.com', 'L-V de 10 a 18', 'Coque conserje, jardinero, todo');
 
 -- --------------------------------------------------------
 
@@ -764,6 +764,13 @@ ALTER TABLE `matriculas`
   ADD KEY `id_vivienda` (`id_vivienda`);
 
 --
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`),
+  ADD KEY `id_comunidad` (`id_comunidad`);
+
+--
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
@@ -927,6 +934,12 @@ ALTER TABLE `mancomunidad`
 --
 ALTER TABLE `matriculas`
   MODIFY `id_matricula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `id_proveedor` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
