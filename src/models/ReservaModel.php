@@ -9,7 +9,11 @@ class ReservaModel extends BaseModel
         parent::__construct($pdo);
     }
 
+    // =========================================================================
+    // GESTIÓN DE ESPACIOS
+    // =========================================================================
     // Para el Vecino: Solo se muestran los espacios que NO están bloqueados
+    
     public function getEspaciosDisponibles($id_comunidad)
     {
         try {

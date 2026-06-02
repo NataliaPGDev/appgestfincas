@@ -1,3 +1,7 @@
+/**
+ * Función para mostrar contenedor reservas o espacios según corresponda
+ */
+
 function switchMainTab(seccion) {
   const isRes = seccion === "reservas";
   const btnRes = document.getElementById("btn-sec-reservas");
@@ -22,7 +26,9 @@ function switchMainTab(seccion) {
   document.getElementById("vista-reservas").classList.toggle("d-none", !isRes);
   document.getElementById("vista-espacios").classList.toggle("d-none", isRes);
 }
-
+/**
+ * Función para mostrar reservas según el filtro seleccionado
+ */
 function switchSubTab(estado) {
   const isAct = estado === "activas";
   const btnActivas = document.getElementById("btn-sub-activas");
