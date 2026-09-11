@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2026 a las 00:36:23
+-- Tiempo de generación: 12-09-2026 a las 00:17:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -211,8 +211,9 @@ CREATE TABLE `espacios_comunidad` (
 --
 
 INSERT INTO `espacios_comunidad` (`id_espacios_comunidad`, `id_comunidad`, `nombre_espacio`, `aforo`, `max_personas`, `hora_apertura`, `hora_cierre`, `duracion_uso`, `bloqueado`, `motivo`, `fecha_actualizacion`) VALUES
-(3, 1, 'Piscina', 30, 15, '09:00:00', '23:00:00', 30, 0, NULL, NULL),
-(4, 1, 'Gym', 100, 20, '07:30:00', '21:45:00', 90, 0, NULL, NULL);
+(4, 1, 'Gym', 100, 20, '07:30:00', '21:45:00', 90, 0, NULL, NULL),
+(6, 1, 'Pista padel', 4, 4, '09:00:00', '20:00:00', 30, 0, NULL, NULL),
+(8, 1, 'pista padel', 4, 4, '09:00:00', '20:00:00', 30, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,9 +232,9 @@ CREATE TABLE `espacios_normas` (
 --
 
 INSERT INTO `espacios_normas` (`id_espacios_normas`, `id_espacios_comunidad`, `descripcion`) VALUES
-(6, 3, 'Seguir las ordenes de la administración Recio que bueno soy y que culito tengo'),
-(7, 3, 'Cualquier duda a coque que se encarga de la piscina'),
-(8, 4, 'zdgvd dsd');
+(8, 4, 'zdgvd dsd'),
+(10, 6, 'lsdjd'),
+(12, 8, 'khkj');
 
 -- --------------------------------------------------------
 
@@ -342,13 +343,6 @@ CREATE TABLE `incidencias` (
   `foto_incidencia` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `incidencias`
---
-
-INSERT INTO `incidencias` (`id_incidencias`, `id_vivienda`, `titulo`, `texto_normalizado`, `descripcion`, `fecha_creacion`, `fecha_actualizacion`, `estado`, `numero_afectados`, `foto_incidencia`) VALUES
-(1, 21, 'Ratas portal', 'ratas portal ratas portal', 'hay ratas en el portal', '2026-06-01 17:34:28', '2026-06-01 17:34:28', 'pendiente', 1, 'public/uploads/incidencias/inc_6a1da684b21155.72522696.webp');
-
 -- --------------------------------------------------------
 
 --
@@ -395,11 +389,10 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id_matricula`, `id_vivienda`, `matricula`, `uso_matricula`, `marca_vehículo`, `nombre_invitado`, `fecha_entrada`) VALUES
-(1, 21, '2244ABC', 'habitual', 'Seat Ibiza', NULL, '2026-06-01 16:22:19'),
-(2, 21, '4455COM', 'habitual', 'Lamborgini', NULL, '2026-06-01 16:23:01'),
-(3, 21, '9988SER', 'invitado', 'Porsche', 'Catalina war', '2026-06-02 00:00:00'),
 (4, 2, '9090WAR', 'habitual', 'Kia', NULL, '2026-06-02 00:05:15'),
-(5, 2, '2323CAT', 'habitual', 'Qasqai', NULL, '2026-06-02 00:05:33');
+(5, 2, '2323CAT', 'habitual', 'Qasqai', NULL, '2026-06-02 00:05:33'),
+(6, 4, '2323COR', 'habitual', 'Hyndai', NULL, '2026-06-02 10:31:33'),
+(7, 4, '4040QWE', 'invitado', 'Seat', 'Juanito Gonzalez', '2026-06-03 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -423,10 +416,10 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id_proveedor`, `id_comunidad`, `nombre`, `categoria`, `telefono`, `email`, `horario`, `descripcion`) VALUES
-(3, 1, 'MarioBros', 'Fontaner铆a', '929556274', 'MarioyLuigi@gmail.com', 'L-J de 8.00 a 14.00 y de 16.00 a 18.00', 'Arreglamos, tuber铆as, ba帽os, fregaderos y salvamos princesas en nuestro tiempo libre YaJuuu'),
+(3, 1, 'MarioBros', 'Fontanería', '929556274', 'MarioyLuigi@gmail.com', 'L-J de 8.00 a 14.00 y de 16.00 a 18.00', 'Arreglamos, tuberías, baños, fregaderos y salvamos princesas en nuestro tiempo libre YaJuuu'),
 (4, 1, 'AlamBrito', 'Electricidad', '678492373', 'alam@brito.com', 'L-V de 10 a 18', 'Arreglamos cableados, enchufes y termomixes'),
-(5, 1, 'ManiManitas', 'Conserjer铆a', '678940324', 'Mani@manitas.com', 'L-J de 8.00 a 16.00 y V-S de 8.00 a 15.00', 'No arreglo nada, solo saco la basura y limpio el portal.  De vez en cuando me puedes pedir que te cuelgue un cuadro no me llames para tonter铆as'),
-(6, 1, 'Coque SL', 'Jardiner铆a', '123932123', 'coquecalatraba@gmail.com', 'L-V de 10 a 18', 'Coque conserje, jardinero, todo');
+(5, 1, 'ManiManitas', 'Conserjería', '678940324', 'Mani@manitas.com', 'L-J de 8.00 a 16.00 y V-S de 8.00 a 15.00', 'No arreglo nada, solo saco la basura y limpio el portal.  De vez en cuando me puedes pedir que te cuelgue un cuadro no me llames para tonterías'),
+(6, 1, 'Coque SL', 'Jardinería', '123932123', 'coquecalatraba@gmail.com', 'L-V de 10 a 18', 'Coque conserje, jardinero, todo');
 
 -- --------------------------------------------------------
 
@@ -450,18 +443,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reservas`, `id_usuario`, `id_espacios_comunidad`, `asistentes`, `fecha_reserva`, `hora_inicio`, `hora_fin`, `estado_reserva`) VALUES
-(1, 3, 3, 4, '2026-04-22', '10:00:00', '10:30:00', 'inactivo'),
-(2, 1, 3, 13, '2026-04-21', '18:00:00', '18:30:00', 'inactivo'),
-(3, 3, 3, 2, '2026-04-21', '18:30:00', '19:00:00', 'inactivo'),
-(4, 3, 3, 15, '2026-04-23', '18:00:00', '18:30:00', 'inactivo'),
-(5, 1, 3, 15, '2026-04-22', '18:00:00', '18:30:00', 'inactivo'),
-(6, 1, 3, 14, '2026-04-23', '17:30:00', '18:00:00', 'inactivo'),
-(7, 3, 3, 15, '2026-05-01', '16:30:00', '17:00:00', 'inactivo'),
-(8, 1, 3, 15, '2026-05-01', '16:30:00', '17:00:00', 'inactivo'),
-(9, 3, 3, 13, '2026-05-13', '16:30:00', '17:00:00', 'inactivo'),
 (10, 3, 4, 18, '2026-05-02', '12:00:00', '13:30:00', 'inactivo'),
-(11, 17, 4, 2, '2026-06-02', '07:30:00', '09:00:00', 'activo'),
-(12, 1, 3, 2, '2026-06-02', '09:00:00', '09:30:00', 'activo');
+(14, 1, 4, 2, '2026-06-05', '09:00:00', '10:30:00', 'inactivo');
 
 -- --------------------------------------------------------
 
@@ -537,12 +520,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_vivienda`, `nombre`, `apellidos`, `dni`, `email`, `password`, `fecha_registro`, `es_propietario`, `rol`, `token_recuperacion`, `expiracion_token`) VALUES
-(1, 2, 'Maria', 'Pelaez', '42034567R', 'mariapelaez@gmail.com', '$2y$10$XyV7m6OAZ8IdECKxvEYEt.7Waw1b4VNY4fNWGfHb6/p4rwdzWDjmS', '2026-04-09 17:37:13', 1, 'vecino', NULL, NULL),
-(3, 4, 'pepe', 'perez', '28394873E', 'pepe@gmail.com', '$2y$10$qCYoCjYbtUazNP7W1pifwOFfHDJPT6A7bgGLqilyQ3STqWHwl1og.', '2026-04-15 02:18:47', 1, 'presidente', NULL, NULL),
-(13, 15, 'Moisés', 'Moreno Robles', '23456789E', 'moisesmobles@gmail.com', '$2y$10$iT9DF1JRbEXIraF.2TEN1e14pNi3Srkj8B7Y51t.uhV7PfLoUVpSu', '2026-05-12 23:40:51', 1, 'vecino', NULL, NULL),
-(14, 16, 'pepe', 'pepito', '123123123', 'pepe@presi.com', '$2y$10$h0LLXEvgrwHTtZpBaa64bu2q3PE7MJ4RZpBJA6TKlWw.fV4qJfC9y', '2026-05-21 15:03:23', 1, 'presidente', NULL, NULL),
-(15, 17, 'alex', 'sisi', '123123123', 'alex@presi.com', '$2y$10$y7KbblG2IuhnWdcfaq10LOn3sG0jBwkSCUlxXkJspoqym3EEchF0y', '2026-05-21 15:03:56', 1, 'presidente', NULL, NULL),
-(17, 21, 'José Joaquín', 'Despliegue Caos', '00000001C', 'jj@gmail.com', '$2y$10$cSxABB5eRCyHdiWIWm2iQuKcDtw4tfS0HgWex5VELX34SXH/9L3PO', '2026-06-01 16:10:24', 1, 'vecino', NULL, NULL);
+(1, 2, 'María', 'Pelaez Martínez', '42034567R', 'mariapelaez@gmail.com', '$2y$10$9nvVh1G.8G2Z.JtZvpAHp.uaYeemJOgtrEAv1Ok2j5LYny9x53gLi', '2026-04-09 17:37:13', 1, 'vecino', NULL, NULL),
+(3, 4, 'José', 'Moreno Trujillo', '28394873E', 'josemoreno@gmail.com', '$2y$10$qiiIOGE88IRmCn/xi4tPduiU6eOcqsRWuHRJRprQ5i49K0pcsTRCy', '2026-04-15 02:18:47', 1, 'presidente', NULL, NULL),
+(19, 16, 'Teresa ', 'Pérez González', '23456789P', 'teresaperez@gmail.com', '$2y$10$M21uX6ivBjk5CcKUCWWIB.ahEbivDNKclwR7xe4w5feV5Qc5v/0uK', '2026-08-27 11:22:53', 1, 'vecino', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -563,10 +543,7 @@ CREATE TABLE `vivienda` (
 INSERT INTO `vivienda` (`id_vivienda`, `id_comunidad`, `nombre`) VALUES
 (2, 1, 'Planta 2-C'),
 (4, 1, 'Planta 1-C'),
-(15, 1, 'Planta 2-C'),
-(16, 2, 'Planta 5-B'),
-(17, 3, 'Planta 5-C'),
-(21, 1, 'Planta 7-A');
+(16, 2, 'Planta 5-B');
 
 -- --------------------------------------------------------
 
@@ -633,9 +610,7 @@ CREATE TABLE `voto` (
 --
 
 INSERT INTO `voto` (`id_voto`, `id_votacion`, `id_usuario`, `id_opcion`, `fecha_voto`) VALUES
-(6, 2, 17, 9, '2026-06-02 00:00:28'),
 (7, 2, 1, 10, '2026-06-02 00:02:14'),
-(8, 3, 17, 11, '2026-06-02 00:11:09'),
 (9, 3, 1, 11, '2026-06-02 00:11:39'),
 (10, 2, 3, 9, '2026-06-02 00:32:23');
 
@@ -889,13 +864,13 @@ ALTER TABLE `direccion`
 -- AUTO_INCREMENT de la tabla `espacios_comunidad`
 --
 ALTER TABLE `espacios_comunidad`
-  MODIFY `id_espacios_comunidad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_espacios_comunidad` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `espacios_normas`
 --
 ALTER TABLE `espacios_normas`
-  MODIFY `id_espacios_normas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_espacios_normas` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `foro_mensaje`
@@ -937,7 +912,7 @@ ALTER TABLE `mancomunidad`
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id_matricula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_matricula` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -949,7 +924,7 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reservas` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_reservas` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `reunion`
@@ -967,7 +942,7 @@ ALTER TABLE `superadmin`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `vivienda`
