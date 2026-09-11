@@ -8,9 +8,9 @@ La solución está diseñada bajo el patrón de arquitectura MVC (Modelo-Vista-C
 
 ## Descripción del proyecto
 
-GestFincas ayuda a organizar y automatizar la gestión de una comunidad de propietarios o vecinos de una forma clara, eficiente y segura. Con esta aplicación, la administración puede llevar el control de los procesos más habituales de la comunidad desde un mismo punto de acceso.
+GestFincas ayuda a organizar y automatizar la gestión de una comunidad de propietarios o vecinos de una forma clara, eficiente y segura. Con esta aplicación, la administración puede llevar el control de los procesos más habituales de la comunidad desde un único punto de acceso.
 
-El sistema está pensado para cubrir las necesidades tanto de presidentes o administradores como de los vecinos, adaptando la experiencia según el rol del usuario.
+Está pensado para cubrir las necesidades tanto de presidentes o administradores como de los vecinos, adaptando la experiencia según el rol del usuario.
 
 ---
 
@@ -78,6 +78,31 @@ El sistema está pensado para cubrir las necesidades tanto de presidentes o admi
 
 ---
 
+## Herramientas y tecnologías utilizadas
+
+### Lenguajes y tecnologías principales
+
+- PHP — lógica del servidor y controladores MVC
+- MySQL — base de datos relacional
+- HTML — estructura de las vistas
+- CSS — estilos y diseño
+- JavaScript — interactividad en el cliente
+
+### Frameworks y librerías
+
+- PHPMailer — envío de correos
+- DOMPDF — generación de documentos PDF
+- Bootstrap — componentes y estilos responsive
+
+### Entorno de desarrollo
+
+- XAMPP — servidor local Apache + MySQL
+- Visual Studio Code — editor de código
+- Git — control de versiones
+- GitHub — repositorio remoto
+
+---
+
 ## Arquitectura del proyecto
 
 La aplicación sigue una estructura basada en MVC:
@@ -85,6 +110,8 @@ La aplicación sigue una estructura basada en MVC:
 - Modelo: gestiona la lógica de acceso y manipulación de datos.
 - Vista: contiene la interfaz de usuario y los componentes visuales.
 - Controlador: procesa las peticiones y coordina la lógica de negocio.
+
+---
 
 ## Estructura principal
 
@@ -110,7 +137,19 @@ gestfincas/
 ├── index.php
 ├── README.md
 ├── test_pdf.php
-└── ...
+```
+
+---
+
+## Requisitos previos
+
+Antes de instalar la aplicación, asegúrate de tener instalado:
+
+- XAMPP, WAMP o MAMP
+- PHP 8.0 o superior
+- MySQL o MariaDB
+- Un navegador web moderno
+- Git (opcional, para clonar el repositorio)
 
 ---
 
@@ -127,10 +166,10 @@ Esto generará todas las tablas necesarias para el funcionamiento de la aplicaci
 
 ## Configurar la base de datos
 
-1. Crea el archivo `config.local.php` a partir de `config.php.example`
-2. Ajusta los datos de conexión según el ejemplo descirto abajo con tus credenciales locales:
+1. Crea el archivo `config.local.php` a partir de `config.php.example`.
+2. Ajusta los datos de conexión con tus credenciales locales:
 
-<?php
+```php
 return [
     'host'    => 'localhost',
     'db'      => 'gestfincas',
@@ -138,43 +177,45 @@ return [
     'pass'    => '',
     'charset' => 'utf8mb4'
 ];
-?>
+```
+
+> En entornos XAMPP, el usuario suele ser `root` y la contraseña puede ir vacía.
 
 ---
 
 ## Ejecutar la aplicación
 
-1. En tu navegador acceso index para rol usuario / presidente: http://localhost/proyectos/gestfincas/index.php
-2. En tu navegador acceso index para rol administrador: http://localhost/proyectos/gestfincas/index.php?route=superadmin/login
-2. Si la carpeta del proyecto tiene un nombre distinto, adapta la ruta según el directorio exacto en el que lo hayas ubicado.
+1. Accede a la siguiente URL para el rol de usuario o presidente:
+   `http://localhost/proyectos/gestfincas/index.php`
+2. Accede a la siguiente URL para el rol de administrador:
+   `http://localhost/proyectos/gestfincas/index.php?route=superadmin/login`
+3. Si la carpeta del proyecto tiene un nombre distinto, adapta la ruta según el directorio exacto en el que lo hayas ubicado.
 
 ---
 
 ## Datos de prueba
 
-El archivo SQL incluye usuarios y registros iniciales para facilitar la validación del sistema, y así probar el flujo de login y la navegación con esos datos predefinidos.
+El archivo SQL incluye usuarios y registros iniciales para facilitar la validación del sistema y probar el flujo de login y la navegación con esos datos predefinidos.
 
-| Rol           | Comunidad        | Vivienda | Mail                  | Password   |
-|---------------|------------------|----------|---------------------- |------------|
-| Presidente    | Las Flores       | Piso 1-C | josemoreno@gmail.com  | jose123    |
-| Vecino 1      | Las Flores       | Piso 2-C | mariapelaez@gmail.com | maria123   |
-| Vecino 2      | Los Cerezos      | Piso 5-B | teresaperez@gmail.com | teresa123  |
-| Administrador | -                | —        | admin@gestfincas.com  | password   |
+| Rol | Comunidad | Vivienda | Mail | Password |
+| --- | --- | --- | --- | --- |
+| Presidente | Las Flores | Piso 1-C | josemoreno@gmail.com | jose123 |
+| Vecino 1 | Las Flores | Piso 2-C | mariapelaez@gmail.com | maria123 |
+| Vecino 2 | Los Cerezos | Piso 5-B | teresaperez@gmail.com | teresa123 |
+| Administrador | - | — | admin@gestfincas.com | password |
 
 ---
 
 ## Casos de uso habituales
 
-1. Un vecino da de alta su vivienda y accede a su panel.
-2. Un presidente gestiona reuniones, comunicaciones y finanzas, entre otras.
-3. El presidente controla incidencias y la disponibilidad de recursos.
-4. La comunidad consulta avisos, cuotas y resoluciones de forma centralizada.
+1. Un vecino registra su vivienda y accede a su panel de comunidad.
+2. Un presidente gestiona reuniones, comunicaciones, finanzas y avisos.
+3. La administración supervisa incidencias y reservas de espacios comunes.
+4. La comunidad consulta cuotas, avisos y decisiones tomadas en votaciones o reuniones.
 
 ---
 
 ## Licencia
 
-Proyecto realizado bajo marco de prácticas FP. Orientado exlusivamente a uso académico.
-
-
+Proyecto realizado bajo el marco de prácticas de FP. Orientado exclusivamente a uso académico.
 
