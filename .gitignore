@@ -1,6 +1,11 @@
-# Configuración local (Contiene contraseñas de BD)
-config/config.local.php
+# Conexión base de datos
 
-# Archivos de sistema y logs
-*.log
-.DS_Store
+config.local.php
+
+# Carpeta uploads
+
+/uploads/*
+!/uploads/.gitkeep
+!/uploads/incidencias/.gitkeep
+!/uploads/reuniones/.gitkeep
+

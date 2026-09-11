@@ -1,59 +1,180 @@
-GestFincas es una aplicación web desarrollada en PHP bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador). Permite la gestión de comunidades de vecinos, facilitando la administración de viviendas, usuarios (vecinos y presidentes) y el control de accesos mediante un sistema de validación por códigos.
+# GestFincas
 
-🚀 Requisitos Previos
-Para ejecutar este proyecto en tu entorno local, necesitarás tener instalado:
+GestFincas es una aplicación web desarrollada en PHP para la gestión integral de comunidades de vecinos. Su objetivo es centralizar la administración diaria de una comunidad mediante herramientas que permiten controlar viviendas, usuarios, comunicaciones, incidencias, reuniones, votaciones, finanzas y reservas de espacios comunes desde una única plataforma.
 
-Un entorno de servidor local como XAMPP, WAMP, o MAMP.
-PHP 8.0 o superior.
-MySQL o MariaDB.
-Git (opcional, para el control de versiones).
-🛠️ Guía de Instalación Paso a Paso
-Sigue estos pasos exactamente en orden para desplegar el proyecto en tu máquina local:
+La solución está diseñada bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador), con una base de datos relacional en MySQL. Esta estructura facilita la mantenibilidad, escalabilidad y evolución del sistema, permitiendo añadir nuevas funcionalidades sin romper la lógica existente.
 
-Paso 1: Descargar el proyecto
-Abre tu terminal o consola.
-Navega hasta la carpeta pública de tu servidor local (por ejemplo, htdocs en XAMPP o www en WAMP).
-Clona el repositorio ejecutando:
-git clone [https://github.com/tu-usuario/JR_M26_ComunidadVecinos.git](https://github.com/tu-usuario/JR_M26_ComunidadVecinos.git)
-(Si no usas Git, simplemente descarga el ZIP del proyecto y descomprímelo en esa misma carpeta).
+---
 
-Paso 2: Crear y configurar la Base de Datos
-Abre el panel de control de tu servidor (ej. XAMPP) y asegúrate de que Apache y MySQL estén en ejecución.
-Ve a tu gestor de base de datos (por ejemplo, entra a http://localhost/phpmyadmin).
-Crea una nueva base de datos vacía llamada exactamente: gestfincas.
-Ve a la pestaña Importar y selecciona el archivo gestfincas.sql que se encuentra dentro de la carpeta config/ de este proyecto.
-Haz clic en "Importar" o "Continuar". Esto creará todas las tablas necesarias y cargará los datos de prueba.
-Paso 3: Configurar la conexión (Archivo Local)
-Por motivos de seguridad, las credenciales no se suben al repositorio. Debes crear tu archivo de configuración:
+## Descripción del proyecto
 
-Ve a la carpeta config/ del proyecto.
-Localiza el archivo llamado config.php.example.
-Duplica ese archivo y renombra la copia como config.local.php.
-Abre config.local.php en tu editor de código y pon las credenciales de tu base de datos local (por defecto en XAMPP el usuario es "root" y la contraseña se deja vacía):
-PHP
+GestFincas ayuda a organizar y automatizar la gestión de una comunidad de propietarios o vecinos de una forma clara, eficiente y segura. Con esta aplicación, la administración puede llevar el control de los procesos más habituales de la comunidad desde un mismo punto de acceso.
 
-'localhost', // o 127.0.0.1 'db' => 'gestfincas', // Nombre de la base de datos 'user' => 'root', // Tu usuario de MySQL 'pass' => '', // Tu contraseña de MySQL 'charset' => 'utf8mb4', ]; ?>
-Paso 4: Arrancar la aplicación
-Abre tu navegador web. Accede a la ruta pública del proyecto. Dependiendo del nombre de la carpeta, la URL será algo como: http://localhost/JR_M26_ComunidadVecinos-main/public/index.php
-¡Listo! Deberías ver la pantalla de inicio de sesión de GestFincas.
-🔑 Datos de Prueba para Iniciar Sesión
+El sistema está pensado para cubrir las necesidades tanto de presidentes o administradores como de los vecinos, adaptando la experiencia según el rol del usuario.
 
-El archivo SQL ya incluye un usuario de prueba para que puedas probar el sistema inmediatamente:
+---
 
-Nombre de la Vivienda: Planta 2-1B
+## Objetivos
 
-Correo Electrónico: mariapelaez@gmail.com
+- Facilitar la administración de viviendas y usuarios.
+- Mejorar la comunicación interna entre vecinos y administración.
+- Gestionar de forma ordenada las reservas de espacios comunes.
+- Centralizar la información financiera y de cuotas.
+- Organizar reuniones, votaciones e incidencias.
+- Proporcionar una herramienta útil, accesible y segura para la comunidad.
 
-Contraseña: casacasa
+---
 
-🏗️ Estructura del Proyecto (Arquitectura MVC) /config: Archivos de configuración de DB, enrutador y scripts SQL.
+## Funcionalidades principales
 
-/public: Contiene el punto de entrada principal (index.php) y los recursos estáticos (assets/ con CSS e imágenes).
+### 1. Autenticación y gestión de usuarios
 
-/src: Código fuente de la app:
+- Registro de usuarios asociados a una vivienda.
+- Inicio de sesión con validación de credenciales.
+- Diferenciación de roles entre vecino y presidente.
+- Control de acceso según el perfil del usuario.
 
-controllers/: Manejan la lógica y peticiones (ej. AuthController.php).
+### 2. Administración de viviendas y comunidad
 
-models/: Interactúan con la base de datos (ej. UsuarioModel.php).
+- Registro y gestión de viviendas.
+- Relación entre usuarios, comunidad y domicilio.
+- Organización de la estructura interna de la comunidad.
 
-views/: Interfaces de usuario y componentes HTML.
+### 3. Comunicaciones y avisos
+
+- Publicación de comunicados y noticias internas.
+- Visualización de mensajes relevantes para la comunidad.
+- Difusión de información útil para todos los vecinos.
+
+### 4. Reuniones y votaciones
+
+- Programación y gestión de reuniones comunitarias.
+- Creación de votaciones o consultas.
+- Seguimiento de decisiones colectivas.
+
+### 5. Reservas de espacios comunes
+
+- Gestión de recursos compartidos como patios, salas o zonas comunes.
+- Control de disponibilidad.
+- Registro histórico de reservas realizadas.
+
+### 6. Incidencias
+
+- Apertura de incidencias por parte de los usuarios.
+- Seguimiento del estado de resolución.
+- Organización del flujo de trabajo para atender averías y problemas.
+
+### 7. Finanzas
+
+- Gestión de cuotas y pagos.
+- Control de gastos y facturas.
+- Seguimiento del estado financiero de la comunidad.
+
+### 8. Proveedores
+
+- Gestión de proveedores asociados a la comunidad.
+- Registro de servicios contratados.
+- Consulta de información útil para la administración.
+
+---
+
+## Arquitectura del proyecto
+
+La aplicación sigue una estructura basada en MVC:
+
+- Modelo: gestiona la lógica de acceso y manipulación de datos.
+- Vista: contiene la interfaz de usuario y los componentes visuales.
+- Controlador: procesa las peticiones y coordina la lógica de negocio.
+
+## Estructura principal
+
+```text
+gestfincas/
+├── config/
+│   ├── database.php
+│   ├── router.php
+│   ├── gestfincas.sql
+│   ├── config.php.example
+│   └── config.local.php
+├── public/
+│   ├── index.php
+│   └── assets/
+├── src/
+│   ├── controllers/
+│   ├── models/
+│   ├── views/
+│   └── ...
+├── libs/
+│   ├── dompdf/
+│   └── PHPMailer/
+├── index.php
+├── README.md
+├── test_pdf.php
+└── ...
+
+---
+
+## Crear la base de datos
+
+1. Inicia Apache y MySQL desde el panel de control de XAMPP.
+2. Accede a phpMyAdmin.
+3. Crea una base de datos llamada `gestfincas`.
+4. Importa el archivo `config/gestfincas.sql`.
+
+Esto generará todas las tablas necesarias para el funcionamiento de la aplicación.
+
+---
+
+## Configurar la base de datos
+
+1. Crea el archivo `config.local.php` a partir de `config.php.example`
+2. Ajusta los datos de conexión según el ejemplo descirto abajo con tus credenciales locales:
+
+<?php
+return [
+    'host'    => 'localhost',
+    'db'      => 'gestfincas',
+    'user'    => 'root',
+    'pass'    => '',
+    'charset' => 'utf8mb4'
+];
+?>
+
+---
+
+## Ejecutar la aplicación
+
+1. En tu navegador acceso index para rol usuario / presidente: http://localhost/proyectos/gestfincas/index.php
+2. En tu navegador acceso index para rol administrador: http://localhost/proyectos/gestfincas/index.php?route=superadmin/login
+2. Si la carpeta del proyecto tiene un nombre distinto, adapta la ruta según el directorio exacto en el que lo hayas ubicado.
+
+---
+
+## Datos de prueba
+
+El archivo SQL incluye usuarios y registros iniciales para facilitar la validación del sistema, y así probar el flujo de login y la navegación con esos datos predefinidos.
+
+| Rol           | Comunidad        | Vivienda | Mail                  | Password   |
+|---------------|------------------|----------|---------------------- |------------|
+| Presidente    | Las Flores       | Piso 1-C | josemoreno@gmail.com  | jose123    |
+| Vecino 1      | Las Flores       | Piso 2-C | mariapelaez@gmail.com | maria123   |
+| Vecino 2      | Los Cerezos      | Piso 5-B | teresaperez@gmail.com | teresa123  |
+| Administrador | -                | —        | admin@gestfincas.com  | password   |
+
+---
+
+## Casos de uso habituales
+
+1. Un vecino da de alta su vivienda y accede a su panel.
+2. Un presidente gestiona reuniones, comunicaciones y finanzas, entre otras.
+3. El presidente controla incidencias y la disponibilidad de recursos.
+4. La comunidad consulta avisos, cuotas y resoluciones de forma centralizada.
+
+---
+
+## Licencia
+
+Proyecto realizado bajo marco de prácticas FP. Orientado exlusivamente a uso académico.
+
+
+
