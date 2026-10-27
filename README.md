@@ -4,6 +4,8 @@ GestFincas es una aplicación web desarrollada en PHP para la gestión integral 
 
 La solución está diseñada bajo el patrón de arquitectura MVC (Modelo-Vista-Controlador), con una base de datos relacional en MySQL. Esta estructura facilita la mantenibilidad, escalabilidad y evolución del sistema, permitiendo añadir nuevas funcionalidades sin romper la lógica existente.
 
+#URL: https://gestfincas.infinityfreeapp.com/
+
 ---
 
 ## Descripción del proyecto
@@ -199,9 +201,9 @@ El archivo SQL incluye usuarios y registros iniciales para facilitar la validaci
 
 | Rol | Comunidad | Vivienda | Mail | Password |
 | --- | --- | --- | --- | --- |
-| Presidente | Las Flores | Piso 1-C | josemoreno@gmail.com | jose123 |
-| Vecino 1 | Las Flores | Piso 2-C | mariapelaez@gmail.com | maria123 |
-| Vecino 2 | Los Cerezos | Piso 5-B | teresaperez@gmail.com | teresa123 |
+| Presidente | Las Flores | Planta 1-C | josemoreno@gmail.com | jose123 |
+| Vecino 1 | Las Flores | Planta 2-C | mariapelaez@gmail.com | maria123 |
+| Vecino 2 | Los Cerezos | Planta 5-B | teresaperez@gmail.com | teresa123 |
 | Administrador | - | — | admin@gestfincas.com | password |
 
 ---
